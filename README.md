@@ -1,2 +1,2 @@
 # Resume
-Creating a quick resuem to host through githib pages
+Creating a quick resume to host through githib pages
