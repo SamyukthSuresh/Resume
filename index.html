@@ -3,457 +3,676 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samyukth's Profile</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7o2pGjWp7s2fB5c5/S3R5U7n/nJ5tL3z7e/w8NfA+QpP6g6y/k6J+wRzQzWzX1QzQzWzX1QzQzWzX1QzQzWzX1QzQzWzX1QzQzWzX1Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Samyukth Suresh Sudha | Software Development Engineer</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            color: #e2e8f0;
+            font-family: 'Amazon Ember', Arial, sans-serif;
+            background: linear-gradient(135deg, #232F3E 0%, #131A22 100%);
+            color: white;
+            line-height: 1.6;
         }
+
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        .content-row {
-            padding: 1rem 0;
-            overflow-x: auto;
-            white-space: nowrap;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+
+        /* Header */
+        .header {
+            background: linear-gradient(90deg, #FF9900 0%, #FFB84D 100%);
+            padding: 30px 0;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 153, 0, 0.3);
         }
-        .content-row::-webkit-scrollbar {
+
+        .header-content {
+            text-align: center;
+            color: #232F3E;
+        }
+
+        .name {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .amazon-badge {
+            background: #232F3E;
+            color: #FF9900;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            background: #37475A;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: #FF9900;
+            color: #232F3E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
+        }
+
+        /* Sections */
+        .section {
+            background: rgba(55, 71, 90, 0.8);
+            margin-bottom: 30px;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 153, 0, 0.1);
             display: none;
         }
+
+        .section.active {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #FF9900;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: "▶";
+            font-size: 0.8em;
+        }
+
+        /* Cards */
         .card {
-            background-color: #161b22;
+            background: rgba(35, 47, 62, 0.9);
+            padding: 25px;
             border-radius: 12px;
-            display: inline-block;
-            vertical-align: top;
-            margin-right: 1.5rem;
-            width: 300px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            cursor: pointer;
+            margin-bottom: 20px;
+            border-left: 5px solid #FF9900;
+            transition: transform 0.3s ease;
         }
+
         .card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(255, 153, 0, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .card-title {
+            font-size: 1.4em;
+            color: #FF9900;
+            font-weight: bold;
+        }
+
+        .card-subtitle {
+            color: #AAB7C4;
+            font-size: 1.1em;
+        }
+
+        .card-duration {
+            background: #FF9900;
+            color: #232F3E;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .achievement-list {
+            list-style: none;
+        }
+
+        .achievement-list li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .achievement-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #FF9900;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Education Grid */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: rgba(35, 47, 62, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid #FF9900;
+        }
+
+        .skill-category h3 {
+            color: #FF9900;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #37475A;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #FF9900;
+            color: #232F3E;
             transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         }
-        .chat-message.user {
-            background-color: #21262d;
-            border-radius: 1rem 1rem 0 1rem;
+
+        /* Impact Stats */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
         }
-        .chat-message.ai {
-            background-color: #1f3d2f;
-            border-radius: 1rem 1rem 1rem 0;
+
+        .stat-card {
+            background: linear-gradient(135deg, #FF9900, #FFB84D);
+            color: #232F3E;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            margin-top: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2em;
+            }
+            
+            .nav {
+                gap: 15px;
+            }
+            
+            .nav-item {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        /* Amazon Prime-like loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #37475A;
+            border-radius: 50%;
+            border-top-color: #FF9900;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
-<body class="p-4 sm:p-8">
-
-    <div class="container mx-auto">
-        <!-- Header & Nav -->
-        <header class="py-6 flex justify-between items-center">
-            <h1 class="text-3xl font-bold text-green-400">Samyukth's Profile</h1>
-            <div class="flex space-x-4">
-                <a href="https://www.linkedin.com/in/samyukth-s-s-286826180/" target="_blank" class="text-blue-500 hover:text-blue-400 transition transform hover:scale-110">
-                    <i class="fab fa-linkedin fa-2x"></i>
-                </a>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">Samyukth Suresh Sudha</h1>
+                <p class="title">Software Development Engineer | Fintech Specialist</p>
+                <div class="amazon-badge">Ex-Amazon SDE I | 23 Months Experience</div>
             </div>
-        </header>
+        </div>
 
-        <main class="space-y-12">
+        <!-- Navigation -->
+        <div class="nav">
+            <div class="nav-item active" onclick="showSection('overview')">Overview</div>
+            <div class="nav-item" onclick="showSection('experience')">Experience</div>
+            <div class="nav-item" onclick="showSection('education')">Education</div>
+            <div class="nav-item" onclick="showSection('skills')">Skills</div>
+            <div class="nav-item" onclick="showSection('achievements')">Achievements</div>
+        </div>
 
-            <!-- Hero/About Section -->
-            <section id="about" class="relative rounded-xl overflow-hidden shadow-2xl p-8 sm:p-12" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://placehold.co/1400x500/21262d/e2e8f0?text=Samyukth') center/cover no-repeat;">
-                <div class="relative z-10">
-                    <h2 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight">Samyukth Suresh Sudha</h2>
-                    <p class="text-lg text-gray-300 mt-2">Class of 2026, BITSOM</p>
-                    <p id="about-text" class="text-gray-200 leading-relaxed text-base sm:text-lg mt-4 max-w-2xl">
-                        I, Samyukth Suresh Sudha, have built a strong technical foundation through my undergraduate studies and professional experience, complemented by analytical and problem-solving skills. My journey began with a focus on data science and eventually led me into software development at Amazon, where I contributed to the development and launch of digital payment products, impacting over 1M customers. My interest in the intersection of technology, customer needs, and business outcomes led me to pivot into an MBA in Finance & Strategy, where I am focused on building my basics on investment analysis, portfolio management, and corporate finance. I am keen to leverage my fintech background and growing knowledge in core finance to build financial products and make data-driven evaluations.
-                    </p>
-                    <button id="tts-button" class="mt-6 bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                        ✨ Listen to my Summary ✨
-                    </button>
-                    <div id="tts-status" class="mt-2 text-sm text-gray-400 hidden">Generating audio...</div>
-                </div>
-            </section>
-
-            <!-- Chatbot Section -->
-            <section id="chatbot" class="rounded-xl overflow-hidden shadow-2xl">
-                <div class="bg-gray-800 p-6 flex justify-between items-center">
-                    <h2 class="text-2xl font-bold text-white">✨ Chat with my Resume ✨</h2>
-                    <i class="fas fa-robot text-green-400 text-2xl"></i>
-                </div>
-                <div id="chat-window" class="h-80 overflow-y-auto p-4 bg-gray-900 flex flex-col space-y-4 mb-4">
-                    <div class="text-center text-gray-500">How can I help you today?</div>
-                </div>
-                <div class="flex p-4 bg-gray-800">
-                    <input type="text" id="chat-input" class="flex-grow p-3 rounded-l-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" placeholder="Ask me about my experience...">
-                    <button id="send-button" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-r-lg shadow-md hover:bg-blue-700 transition duration-300">Send</button>
-                </div>
-                <div id="chat-status" class="mt-2 text-sm text-gray-400 hidden px-4">AI is typing...</div>
-            </section>
-
-            <!-- Education Section as a Carousel -->
-            <section>
-                <h2 class="text-3xl font-bold text-white mb-4">Education</h2>
-                <div class="content-row">
-                    <!-- MBA Card -->
-                    <div class="card p-6">
-                        <div class="h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-graduation-cap text-green-400 text-5xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-100">MBA (Finance & Strategy)</h3>
-                        <p class="text-sm text-gray-400 mt-1">BITS School of Management (BITSOM)</p>
-                        <ul class="list-disc list-inside text-gray-400 text-sm mt-2">
-                            <li>Pursuing, 2026</li>
-                            <li>Dean's List</li>
-                        </ul>
-                    </div>
-                    <!-- B. Tech Card -->
-                    <div class="card p-6">
-                        <div class="h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-laptop-code text-green-400 text-5xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-100">B. Tech (Computer Science)</h3>
-                        <p class="text-sm text-gray-400 mt-1">Amrita School of Engineering</p>
-                        <ul class="list-disc list-inside text-gray-400 text-sm mt-2">
-                            <li>Graduated 2022</li>
-                            <li>9.6/10 GPA (Rank 5/337)</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Work Experience Section as a Carousel -->
-            <section>
-                <h2 class="text-3xl font-bold text-white mb-4">Work Experience</h2>
-                <div class="content-row">
-                    <!-- Amazon Card -->
-                    <div class="card p-6">
-                        <div class="h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fab fa-amazon text-green-400 text-5xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-100">SDE I - Amazon India</h3>
-                        <p class="text-sm text-gray-400 mt-1">July 2022 - June 2024</p>
-                        <ul class="list-disc list-inside text-gray-400 text-sm mt-2">
-                            <li>Developed digital payment products impacting 1M+ customers.</li>
-                            <li>Led UI/UX for a new payment method, managing 150K customers.</li>
-                            <li>Resolved 45 crucial launch issues, accelerating product release.</li>
-                        </ul>
-                    </div>
-                    <!-- MyAssets Card -->
-                    <div class="card p-6">
-                        <div class="h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-chart-line text-green-400 text-5xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-100">Intern - MyAssets</h3>
-                        <p class="text-sm text-gray-400 mt-1">July 2022 (4 Months)</p>
-                        <ul class="list-disc list-inside text-gray-400 text-sm mt-2">
-                            <li>Acquired foundational knowledge of mutual funds.</li>
-                            <li>Assisted in building customized investment strategies.</li>
-                        </ul>
-                    </div>
-                    <!-- Aditya Birla Card -->
-                    <div class="card p-6">
-                        <div class="h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-handshake text-green-400 text-5xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-100">Leadership Program</h3>
-                        <p class="text-sm text-gray-400 mt-1">Aditya Birla Group</p>
-                        <ul class="list-disc list-inside text-gray-400 text-sm mt-2">
-                            <li>Built domain-driven capability models.</li>
-                            <li>Recommended optimizations to save costs.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Academic Achievements Section as a Carousel -->
-            <section>
-                <h2 class="text-3xl font-bold text-white mb-4">Academic Achievements</h2>
-                <div class="content-row">
-                    <!-- Research Paper Card -->
-                    <div class="card p-6">
-                        <div class="h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-book-open text-green-400 text-5xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-100">Research Paper</h3>
-                        <p class="text-sm text-gray-400 mt-1">Published in Springer 2021</p>
-                        <ul class="list-disc list-inside text-gray-400 text-sm mt-2">
-                            <li>Co-authored on ML in Formula 1.</li>
-                        </ul>
-                    </div>
-                    <!-- Amazon ML Challenge Card -->
-                    <div class="card p-6">
-                        <div class="h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-trophy text-green-400 text-5xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-100">Amazon ML Challenge</h3>
-                        <p class="text-sm text-gray-400 mt-1">Top 4% of 3300 teams</p>
-                        <ul class="list-disc list-inside text-gray-400 text-sm mt-2">
-                            <li>High-ranking performance.</li>
-                        </ul>
-                    </div>
-                    <!-- Cisco Program Card -->
-                    <div class="card p-6">
-                        <div class="h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-lightbulb text-green-400 text-5xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-100">Cisco Incubation Program</h3>
-                        <p class="text-sm text-gray-400 mt-1">Selected for startup incubation</p>
-                        <ul class="list-disc list-inside text-gray-400 text-sm mt-2">
-                            <li>Proposal for dynamic traffic regulation.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Extracurricular Activities Section as a Carousel -->
-            <section>
-                <h2 class="text-3xl font-bold text-white mb-4">Extracurricular Activities</h2>
-                <div class="content-row">
-                    <!-- Cricket Card -->
-                    <div class="card p-6">
-                        <div class="h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-cricket text-green-400 text-5xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-100">Cricket</h3>
-                        <ul class="list-disc list-inside text-gray-400 text-sm mt-2 whitespace-normal">
-                            <li>Represented Eccentrics Cricket club.</li>
-                            <li>Competed for university team.</li>
-                        </ul>
-                    </div>
-                    <!-- Photography Card -->
-                    <div class="card p-6">
-                        <div class="h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-camera text-green-400 text-5xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-100">Photography</h3>
-                        <ul class="list-disc list-inside text-gray-400 text-sm mt-2 whitespace-normal">
-                            <li>Official Photographer for Media Club.</li>
-                        </ul>
-                    </div>
-                    <!-- Equity Research Card -->
-                    <div class="card p-6">
-                        <div class="h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-chart-pie text-green-400 text-5xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-100">Equity Research</h3>
-                        <ul class="list-disc list-inside text-gray-400 text-sm mt-2 whitespace-normal">
-                            <li>Prepared a detailed sell-side pitch book.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="text-center py-8 mt-10 text-gray-500">
-            <p>&copy; 2024 Samyukth Suresh Sudha. All Rights Reserved.</p>
-        </footer>
-    </div>
-<script>
-    // Constants for Gemini API and resume content
-    const RESUME_TEXT = `Samyukth Suresh Sudha, Class of 2026, BITSOM.
-    I have a strong technical foundation in computer science and software development from my B.Tech degree and my time as a Software Development Engineer I at Amazon India. At Amazon, I developed digital payment products like Amazon PayLater in Singapore and a co-branded credit card in Brazil, impacting over 1 million customers. I also have experience in operational excellence, having resolved 45 crucial launch issues and contributed over 2500 hours of 24/7 on-call support. I am now pivoting to finance, pursuing an MBA at BITSOM, where I am building skills in investment analysis, portfolio management, and corporate finance. My achievements include co-authoring a research paper on machine learning, ranking in the top 4% of the Amazon ML Challenge, and being selected for a Cisco startup incubation program. I also have extracurricular experience in cricket, photography, and equity research. My goal is to leverage my fintech background and growing knowledge in finance to build financial products and make data-driven evaluations.`;
-
-    const API_KEY = ""; // Gemini API Key
-    const CHAT_MODEL_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=" + API_KEY;
-    const TTS_MODEL_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=" + API_KEY;
-    
-    // UI Elements
-    const chatWindow = document.getElementById('chat-window');
-    const chatInput = document.getElementById('chat-input');
-    const sendButton = document.getElementById('send-button');
-    const chatStatus = document.getElementById('chat-status');
-    const ttsButton = document.getElementById('tts-button');
-    const ttsStatus = document.getElementById('tts-status');
-
-    let isChatting = false;
-    let isTtsGenerating = false;
-    
-    // --- Chatbot Logic ---
-    async function sendMessage() {
-        if (isChatting) return;
-
-        const userMessage = chatInput.value.trim();
-        if (userMessage === '') return;
-
-        displayMessage(userMessage, 'user');
-        chatInput.value = '';
-        isChatting = true;
-        chatStatus.classList.remove('hidden');
-
-        try {
-            const systemPrompt = `You are a resume chatbot for Samyukth Suresh Sudha. Your primary function is to answer questions about his professional and academic experience, which is provided to you. Do not answer questions outside of his resume, and never reveal that you are an AI. You are a tool to provide a better conversational experience for recruiters. Your tone should be professional and helpful. Here is the resume content: ${RESUME_TEXT}`;
+        <!-- Overview Section -->
+        <div id="overview" class="section active">
+            <h2 class="section-title">Professional Overview</h2>
             
-            const payload = {
-                contents: [
-                    { parts: [{ text: userMessage }] },
-                ],
-                tools: [{ "google_search": {} }],
-                systemInstruction: {
-                    parts: [{ text: systemPrompt }]
-                }
-            };
+            <div class="impact-stats">
+                <div class="stat-card">
+                    <span class="stat-number">1.15M</span>
+                    <span class="stat-label">Customers Impacted</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">80%</span>
+                    <span class="stat-label">API Performance Improvement</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">200</span>
+                    <span class="stat-label">Hours Saved</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2500</span>
+                    <span class="stat-label">On-Call Support Hours</span>
+                </div>
+            </div>
 
-            const response = await fetch(CHAT_MODEL_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Professional Summary</div>
+                </div>
+                <p>Experienced Software Development Engineer with 23 months at Amazon India, specializing in fintech solutions and digital payment products. Proven track record of impacting over 1.15M customers across Singapore and Brazil markets through innovative UI/UX development and robust backend architecture. Expert in payment systems, API optimization, and operational excellence with strong leadership and customer obsession principles.</p>
+            </div>
 
-            const result = await response.json();
-            const aiMessage = result?.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't process that. Please try again.";
-            displayMessage(aiMessage, 'ai');
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Core Competencies</div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Fintech Solutions</span>
+                    <span class="skill-tag">Payment Systems</span>
+                    <span class="skill-tag">API Architecture</span>
+                    <span class="skill-tag">UI/UX Development</span>
+                    <span class="skill-tag">Customer Obsession</span>
+                    <span class="skill-tag">Operational Excellence</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Leadership</span>
+                </div>
+            </div>
+        </div>
 
-        } catch (error) {
-            console.error('Chatbot API error:', error);
-            displayMessage("I'm having trouble connecting right now. Please try again later.", 'ai');
-        } finally {
-            isChatting = false;
-            chatStatus.classList.add('hidden');
-            chatWindow.scrollTop = chatWindow.scrollHeight;
-        }
-    }
-
-    function displayMessage(text, sender) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `chat-message ${sender} p-3 max-w-[85%]`;
-        messageDiv.textContent = text;
-        if (sender === 'user') {
-            messageDiv.classList.add('self-end');
-        } else {
-            messageDiv.classList.add('self-start');
-        }
-        chatWindow.appendChild(messageDiv);
-        chatWindow.scrollTop = chatWindow.scrollHeight;
-    }
-
-    sendButton.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
-
-    // --- TTS Logic ---
-    ttsButton.addEventListener('click', async () => {
-        if (isTtsGenerating) return;
-
-        const summaryText = document.getElementById('about-text').textContent.trim();
-        
-        isTtsGenerating = true;
-        ttsButton.disabled = true;
-        ttsStatus.classList.remove('hidden');
-
-        try {
-            const payload = {
-                contents: [{
-                    parts: [{ text: summaryText }]
-                }],
-                generationConfig: {
-                    responseModalities: ["AUDIO"],
-                    speechConfig: {
-                        voiceConfig: {
-                            prebuiltVoiceConfig: { voiceName: "Rasalgethi" }
-                        }
-                    }
-                },
-                model: "gemini-2.5-flash-preview-tts"
-            };
-
-            const response = await fetch(TTS_MODEL_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+        <!-- Experience Section -->
+        <div id="experience" class="section">
+            <h2 class="section-title">Work Experience</h2>
             
-            const result = await response.json();
-            const audioData = result?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-            const mimeType = result?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.mimeType;
-
-            if (audioData && mimeType && mimeType.startsWith("audio/")) {
-                const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)[1], 10);
-                const pcmData = base64ToArrayBuffer(audioData);
-                const pcm16 = new Int16Array(pcmData);
-                const wavBlob = pcmToWav(pcm16, sampleRate);
-                const audioUrl = URL.createObjectURL(wavBlob);
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Software Development Engineer I (SDE I)</div>
+                        <div class="card-subtitle">Amazon India</div>
+                    </div>
+                    <div class="card-duration">July'22 - Jun'24</div>
+                </div>
                 
-                const audio = new Audio(audioUrl);
-                audio.play();
+                <h4 style="color: #FF9900; margin: 20px 0 10px 0;">Fintech - PayLater Product</h4>
+                <ul class="achievement-list">
+                    <li>Managed over <strong>150K customers</strong> by spearheading UI/UX development for the paylater payment method in Singapore</li>
+                    <li>Empowered <strong>~10K customers</strong> by fixing a critical mobile web redirection issue, improving account registration experience</li>
+                    <li>Boosted <strong>user retention and completion rates</strong> by building a resume feature for payment method registration flow</li>
+                    <li>Facilitated the <strong>KYC process</strong> by implementing a robust communication framework between Amazon & partner's platform</li>
+                </ul>
 
-                audio.onended = () => {
-                    URL.revokeObjectURL(audioUrl);
-                };
-            } else {
-                console.error('Audio data not found or invalid mime type');
-                ttsStatus.textContent = 'Audio generation failed.';
-            }
+                <h4 style="color: #FF9900; margin: 20px 0 10px 0;">Fintech - Co-Branded Credit Card (CBCC) Product</h4>
+                <ul class="achievement-list">
+                    <li>Supported <strong>~1M customers</strong> as the primary owner of UI/UX for the Co-branded credit card product in Brazil</li>
+                    <li>Benefited over <strong>2K users/day</strong> by designing and implementing category-based rewards feature in CBCC dashboard</li>
+                    <li>Enriched the customer experience with a UI-level retry mechanism to reduce attrition during transient failures</li>
+                </ul>
 
-        } catch (error) {
-            console.error('TTS API error:', error);
-            ttsStatus.textContent = 'Audio generation failed.';
-        } finally {
-            isTtsGenerating = false;
-            ttsButton.disabled = false;
-            ttsStatus.classList.add('hidden');
+                <h4 style="color: #FF9900; margin: 20px 0 10px 0;">API and Storage Architecture</h4>
+                <ul class="achievement-list">
+                    <li>Achieved <strong>effort savings of 200 hours</strong> by reducing future API development effort through middleware creation</li>
+                    <li>Reduced the API Transactions Per Second by <strong>80%</strong>, realizing substantial cost savings during the product launch</li>
+                    <li>Designed and implemented reusable storage modelling and API contracts for enriching the CBCC dashboard</li>
+                    <li>Orchestrated migration of <strong>120K customer</strong> records to new storage model</li>
+                </ul>
+
+                <h4 style="color: #FF9900; margin: 20px 0 10px 0;">Operational Excellence</h4>
+                <ul class="achievement-list">
+                    <li>Ensured strategic market entry by swiftly resolving <strong>45 crucial launch issues</strong>, accelerating CBCC product launch</li>
+                    <li>Demonstrated customer obsession by contributing over <strong>2500 hours of 24/7</strong> on-call support for issue resolution</li>
+                    <li>Enhanced customer experience through contingency planning by integrating CBCC customer acquisition journey with outage detection service</li>
+                    <li>Integrated <strong>Generative AI ticket summarizer</strong> to enhance ticket readability & resolution for issue management</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Leadership Program Intern</div>
+                        <div class="card-subtitle">Aditya Birla Group</div>
+                    </div>
+                    <div class="card-duration">April'25 - May'25</div>
+                </div>
+                <ul class="achievement-list">
+                    <li>Built domain-driven capability model & mapped 100+ applications to uncover strategic alignment and redundancy</li>
+                    <li>Rationalized apps across cost, complexity and business impact by building an application assessment framework</li>
+                    <li>Recommended actionable optimizations via tech streamlining, risk mitigation with clear cost saving potential</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Summer Intern</div>
+                        <div class="card-subtitle">MyAssetsConsolidation.com</div>
+                    </div>
+                    <div class="card-duration">July'22</div>
+                </div>
+                <ul class="achievement-list">
+                    <li>Acquired foundational knowledge of mutual funds, including sponsors, trustees, AMCs through NISM module</li>
+                    <li>Assisted a Certified Financial Planner in building customized investment strategies based on client's life goals</li>
+                    <li>Aided financial planning & analysis through creation of basic excel models & relevant financial computations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div id="education" class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">MBA (Finance & Strategy)</div>
+                            <div class="card-subtitle">BITS School of Management (BITSoM), Mumbai</div>
+                        </div>
+                        <div class="card-duration">2026</div>
+                    </div>
+                    <div style="background: linear-gradient(90deg, #FF9900, #FFB84D); color: #232F3E; padding: 10px; border-radius: 8px; text-align: center; font-weight: bold;">
+                        Dean's List | Currently Pursuing
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">B. Tech (Computer Science)</div>
+                            <div class="card-subtitle">Amrita School of Engineering, Coimbatore</div>
+                        </div>
+                        <div class="card-duration">2022</div>
+                    </div>
+                    <div style="background: linear-gradient(90deg, #FF9900, #FFB84D); color: #232F3E; padding: 10px; border-radius: 8px; text-align: center; font-weight: bold;">
+                        CGPA: 9.6/10 | Rank 5/337
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Higher Secondary Certificate</div>
+                            <div class="card-subtitle">Chettinad Vidhyashram, Chennai</div>
+                        </div>
+                        <div class="card-duration">2018</div>
+                    </div>
+                    <div style="background: linear-gradient(90deg, #FF9900, #FFB84D); color: #232F3E; padding: 10px; border-radius: 8px; text-align: center; font-weight: bold;">
+                        88.4%
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Senior Secondary Examination</div>
+                            <div class="card-subtitle">Gt Aloha Vidhya Mandir, Chennai</div>
+                        </div>
+                        <div class="card-duration">2016</div>
+                    </div>
+                    <div style="background: linear-gradient(90deg, #FF9900, #FFB84D); color: #232F3E; padding: 10px; border-radius: 8px; text-align: center; font-weight: bold;">
+                        10/10
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div id="skills" class="section">
+            <h2 class="section-title">Technical Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Fintech & Payments</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Payment Systems</span>
+                        <span class="skill-tag">PayLater Solutions</span>
+                        <span class="skill-tag">Credit Cards</span>
+                        <span class="skill-tag">KYC Processes</span>
+                        <span class="skill-tag">Financial APIs</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Cloud & Architecture</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">API Design</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">Storage Architecture</span>
+                        <span class="skill-tag">System Design</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Frontend Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">Mobile Web</span>
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Predictive Modeling</span>
+                        <span class="skill-tag">Excel Modeling</span>
+                        <span class="skill-tag">Financial Analysis</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Leadership & Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Customer Obsession</span>
+                        <span class="skill-tag">Operational Excellence</span>
+                        <span class="skill-tag">Team Leadership</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Strategic Thinking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements Section -->
+        <div id="achievements" class="section">
+            <h2 class="section-title">Achievements & Recognition</h2>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Amazon Achievements</div>
+                </div>
+                <ul class="achievement-list">
+                    <li>Demonstrated <strong>leadership and commitment</strong> through highest code contributions among a six-member team</li>
+                    <li>Ranked <strong>top 10 out of 40</strong> teams in an internal Amazon hackathon by automating payment processor config creation</li>
+                    <li>Earned the <strong>Exemplary Owner</strong> award for raising the bar in customer obsession & delivery for product launch</li>
+                    <li>Received accolades for easing platform onboarding, fostering client relationships through collaborative support</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Academic & Research Achievements</div>
+                </div>
+                <ul class="achievement-list">
+                    <li>Co-authored a research paper on <strong>"Machine Learning based Predictive Study on Formula 1"</strong> published in Springer (2021)</li>
+                    <li>Ranked in the <strong>top 4% of 3300 teams</strong> in the Amazon ML Challenge for product description-based category prediction (2021)</li>
+                    <li>Selected for <strong>Cisco's startup incubation program</strong> as part of a 4-member team for dynamic traffic regulation proposal (2021)</li>
+                    <li>Conducted a <strong>2-day hands-on workshop on basics of machine learning</strong> for 1st and 2nd year computer science students (2021)</li>
+                    <li>Earned the <strong>Infosys Certified Software Programmer</strong> certification displaying high proficiency in programming & databases (2021)</li>
+                    <li>Awarded a <strong>tuition waiver of 50%</strong> based on rank in Amrita School of Engineering admission exam (2018)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Leadership & Extracurricular</div>
+                </div>
+                <ul class="achievement-list">
+                    <li>Chosen as <strong>1 of 12 among 158</strong> potential applicants for the BITSoM finance club (2024)</li>
+                    <li>Delivered an event on fintech in e-commerce, covering ideation, market comparisons and case studies (2024)</li>
+                    <li>Prepared a detailed <strong>sell-side pitch book</strong> with strategic assessment of an Indian MedTech company (2024)</li>
+                    <li>Represented Eccentrics Cricket club in the <strong>5th division</strong> of Tamil Nadu Cricket Association league (2023-24)</li>
+                    <li>Served as an <strong>Official Photographer</strong> for the Media Club documenting various campus-held events (2019-20)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Add active class to clicked nav item
+            event.target.classList.add('active');
         }
-    });
 
-    // Utility functions for TTS audio conversion
-    function base64ToArrayBuffer(base64) {
-        const binaryString = window.atob(base64);
-        const len = binaryString.length;
-        const bytes = new Uint8Array(len);
-        for (let i = 0; i < len; i++) {
-            bytes[i] = binaryString.charCodeAt(i);
-        }
-        return bytes.buffer;
-    }
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0) scale(1)';
+                });
+            });
 
-    function pcmToWav(pcmData, sampleRate) {
-        const wavHeader = createWavHeader(pcmData.length * 2, sampleRate);
-        const wavData = new Uint8Array(wavHeader.byteLength + pcmData.byteLength * 2);
-        wavData.set(new Uint8Array(wavHeader.buffer));
-        wavData.set(new Uint8Array(pcmData.buffer), wavHeader.byteLength);
-        return new Blob([wavData], { type: 'audio/wav' });
-    }
-
-    function createWavHeader(dataSize, sampleRate) {
-        const buffer = new ArrayBuffer(44);
-        const view = new DataView(buffer);
-
-        // RIFF chunk descriptor
-        writeString(view, 0, 'RIFF');
-        view.setUint32(4, 36 + dataSize, true);
-        writeString(view, 8, 'WAVE');
-
-        // FMT sub-chunk
-        writeString(view, 12, 'fmt ');
-        view.setUint32(16, 16, true);
-        view.setUint16(20, 1, true); // PCM format
-        view.setUint16(22, 1, true); // Mono
-        view.setUint32(24, sampleRate, true);
-        view.setUint32(28, sampleRate * 2, true); // Byte rate
-        view.setUint16(32, 2, true); // Block align
-        view.setUint16(34, 16, true); // Bits per sample
-
-        // Data sub-chunk
-        writeString(view, 36, 'data');
-        view.setUint32(40, dataSize, true);
-
-        return view;
-    }
-
-    function writeString(view, offset, string) {
-        for (let i = 0; i < string.length; i++) {
-            view.setUint8(offset + i, string.charCodeAt(i));
-        }
-    }
-</script>
+            // Add click animation to nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
